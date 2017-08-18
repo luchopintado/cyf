@@ -3,17 +3,17 @@
 ini_set("display_errors", true);
 error_reporting(error_reporting() & ~E_NOTICE);
 
-define("DB_HOST", "127.0.0.1");
+/*define("DB_HOST", "127.0.0.1");
 define("DB_NAME", "cyf");
 define("DB_PORT", "3306");
 define("DB_USERNAME", "root");
-define("DB_PASSWORD", "");
+define("DB_PASSWORD", "");*/
 
-/*define("DB_HOST", "localhost");
-define("DB_NAME", "sytcocom_data");
+define("DB_HOST", "localhost");
+define("DB_NAME", "lavalle_cyf");
 define("DB_PORT", "3306");
-define("DB_USERNAME", "sytcocom_admindb");
-define("DB_PASSWORD", "Ingreso321");*/
+define("DB_USERNAME", "lavalle_cyf");
+define("DB_PASSWORD", "Ingreso.MYSQL");
 
 define("LIMIT_RESULT", 40);
 define("PAGE_TITLE", "CYF");
