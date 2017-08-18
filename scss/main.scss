@@ -1,0 +1,940 @@
+$color_blanco: #fff;
+$color_blanco_humo: #e4e4e4;
+$color_negro: #000;
+$color_acero: #1f2334;
+$color_acero2: #163144;
+$color_amarillo: #fac200;
+$color_naranja: #ce6b00;
+
+$color_gris1: #181818;
+$color_gris2: #242424;
+$color_gris3: #21211F;
+$color_gris4: #939393;
+
+$color_texto_gris: #333;
+$color_texto_gris2: #999;
+$color_texto_gris3: #3e3c3c;
+
+$color_amarillo1: #fcd846;
+$color_amarillo2: #f3cb29;
+$color_amarillo3: #e2c133;
+$color_amarillo_brillo: #ffff00;
+$color_azuloscuro: #1f2334;
+
+$screen_sm_min: '768px';
+$screen_md_min: '992px';
+$screen_lg_min: '1200px';
+
+@mixin font_opensans () { font-family: 'Open Sans', sans-serif;}
+@mixin font_roboto () { font-family: 'Roboto Condensed', sans-serif;}
+@mixin font_lato () { font-family: 'Lato', sans-serif;}
+@mixin font_ubuntu () { font-family: 'Ubuntu', sans-serif;}
+
+$screen_sm_min: '768px';
+$screen_md_min: '992px';
+$screen_lg_min: '1200px';
+
+body {
+    color: #fff;
+    @include font_opensans();
+}
+a {
+    &.link {
+        text-decoration: none;
+        display: inline-block;
+        padding: 3px 12px;
+        font-weight: bold;
+        color: #fff;
+        background-color: $color_blanco;
+        transition: all .2s ease-in .1s;
+        &:hover {
+            color: #111;
+            background-color: $color_amarillo_brillo;
+        }
+    }
+}
+
+nav {
+    &.navbar {
+        background-color: transparent;
+    }
+    ul {
+        float: right;
+        margin-right: 5%;
+        &.navbar {
+            margin-bottom: 0;
+        }
+    }
+    li {
+        float: left;
+        a {
+            color: $color_blanco;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 20px;
+        }
+    }
+}
+.nav>li {
+    width: 100%;
+}
+.nav>li>a {
+    text-align: right;
+    font-weight: bold;
+    padding: 10px 22px;
+    margin: 15px 0px;
+    font-size: 15px;
+    font-weight: normal;
+
+    transition: all .3s ease-out;
+}
+.nav>li.active>a,
+.nav>li>a:focus,
+.nav>li>a:hover {
+    color: $color_amarillo_brillo;
+    background-color: transparent;
+}
+.navbar-default {
+    border: none;
+    border-color: transparent;
+}
+.navbar-collapse {
+    float: right;
+}
+.navbar {
+    background: transparent;
+    min-height: auto;
+    border: none;
+    margin-bottom: 0;
+}
+p {
+    text-align: justify;
+}
+
+
+.main {
+    border-top: 20px solid $color_amarillo;
+    background-color: $color_acero;
+    position: relative;
+    .logo {
+        position: absolute;
+        z-index: 1000;
+        left: 5%;
+        top: -10px;
+        width: 128px;
+    }
+}
+.carousel {
+    .item {
+        .desc {
+            position: absolute;
+            left: 20.25%;
+            bottom: 0;
+            &:after {
+                position: absolute;
+                bottom: 0;
+                content: '';
+                width: 0;
+                height: 0;
+            }
+            .rect {
+                position: relative;
+                z-index: 10;
+                margin-bottom: 40px;
+                @include font_roboto();
+                width: 240px;
+                text-align: center;
+                padding: 8px;
+                background: #000;
+                font-weight: bold;
+                font-size: 18px;
+                em {
+                    color: $color_amarillo;
+                }
+                .upper {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+.nosotros {
+    background: url(../img/fondo-blanco.jpg) no-repeat center;
+    background-size: cover;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        right: 0;
+        left: 0;
+        bottom: 14px;
+        height: 45px;
+        background: url(../img/bg-brown-shape.png) no-repeat right bottom;
+    }
+    .pat {
+        display: block;
+        height: 14px;
+        background: url(../img/pattern.png) repeat-x;
+        animation: patterAnim 2s linear infinite;
+        -webkit-animation: patterAnim 2s linear infinite;
+    }
+}
+
+
+.tabcontainer {
+    margin-bottom: 11%;
+    margin-top: 7%;
+    .tabs {
+        float: left;
+        width: 100%;
+        background: $color_blanco;
+        padding: 2px;
+    }
+    .tab {
+        display: block;
+        margin: 4px 8px;
+        clear: both;
+        border: 1px solid #fff;
+        .icon {
+            float: left;
+            width: 72px;
+            height: 92px;
+            text-align: center;
+            background: $color_amarillo;
+            vertical-align: middle;
+            .helper {
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+            img {
+                vertical-align: middle;
+            }
+        }
+        .label {
+            color: $color_negro;
+            display: block;
+            height: 92px;
+            line-height: 75px;
+            margin-left: 80px;
+            font-size: 24px;
+            border-radius: 0;
+            font-weight: 300;
+            background: transparent;
+            @include font_ubuntu;
+        }
+        &.active {
+            .label {
+                font-weight: normal;
+                color: $color_blanco;
+                background: $color_acero2;
+            }
+        }
+    }
+    .content {
+        float: left;
+        width: 100%;
+        background: $color_gris1;
+        height: 302px;
+        .info {
+            margin: 24px 40px;
+            display: none;
+            &.active {
+                display: block;
+            }
+            h3 {
+                @include font_roboto;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $color_blanco;
+                font-size: 36px;
+                line-height: 28px;
+                span {
+                    font-size: 28px;
+                    color: $color_amarillo;
+                }
+            }
+            p {
+                font-size: 15px;
+                line-height: 18px;
+                @include font_lato;
+            }
+        }
+    }
+    .image {
+        width: 100%;
+        float: left;
+        border: 8px solid $color_amarillo;
+        height: 302px;
+        background: no-repeat center;
+        background-image: url(../img/img-quienes.jpg);
+        background-size: cover;
+    }
+}
+
+.servicios {
+    color: $color_gris1;
+    display: table;
+    .margin {
+        text-align: center;
+        margin: 0% 20% 0% 20%;
+    }
+    h3 {
+        @include font_ubuntu;
+        margin-bottom: 32px;
+    }
+    .text {
+        p {
+            @include font_lato;
+            text-align: justify;
+            font-size: 16px;
+        }
+        a {
+            display: inline-block;
+            color: $color_blanco;
+            text-decoration: none;
+            padding: 10px 32px;
+            background: $color_negro;
+            border-radius: 5px;
+            margin-top: 20px;
+            &:active, &:hover {
+                color: $color_blanco;
+                text-decoration: underline;
+            }
+        }
+    }
+    .block {
+        display: block;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+    .block1 {
+        background: $color_amarillo1;
+    }
+    .block2 {
+        background: $color_amarillo2;
+    }
+    .block3 {
+        background: $color_amarillo3;
+    }
+}
+
+.clientes {
+    background: url(../img/bg-clients.jpg) no-repeat center;
+    background-size: cover;
+    padding-top: 4%;
+    padding-bottom: 5%;
+    h2 {
+        color: $color_amarillo;
+        font-style: 36px;
+        text-align: center;
+        margin-bottom: 50px;
+        @include font_ubuntu;
+    }
+    .cliente {
+        margin: 10px;
+        border: 1px solid $color_blanco;
+        padding: 8px;
+        height: 52px;
+        display: table;
+        width: 95%;
+        transition: all .2s ease-in;
+        p {
+            display: table-cell;
+            vertical-align: middle;
+            color: $color_blanco;
+            text-align: center;
+            font-style: italic;
+            font-size: 12px;
+            @include font_lato;
+            transition: all .2s ease-in;
+        }
+        &:hover {
+            border: 0px solid transparent;
+            box-shadow: inset 0 0 0 7px $color_amarillo;
+            p {
+                color: $color_amarillo;
+            }
+        }
+    }
+}
+.obras {
+    background: url(../img/bg-obras.jpg) no-repeat;
+    background-size: cover;
+    padding-top: 4%;
+    .content {
+        text-align: center;
+        color: $color_negro;
+        a {
+            display: inline-block;
+            color: $color_blanco;
+            text-decoration: none;
+            padding: 10px 32px;
+            background: $color_negro;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            &:active, &:hover {
+                color: $color_blanco;
+                text-decoration: underline;
+            }
+        }
+        h3 {
+            font-size: 48px;
+            @include font_ubuntu;
+        }
+    }
+    .construccion {
+        
+        .content {
+            h3 {
+                text-align: center;
+            }
+        }
+    }
+    .ingenieria {
+        
+        .content {
+            h3 {
+                text-align: center;
+                strong {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    .ingenieros {
+        display: none;
+        text-align: center;
+    }
+}
+
+.contacto {
+    background: url(../img/bg-contact.jpg) no-repeat center;
+    background-size: cover;
+    padding-top: 3%;
+    padding-bottom: 4%;
+    .message {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    form {
+        margin-left: 10%;
+        margin-right: 10%;
+        input, textarea, button {
+            border-radius: 0;
+        }
+        input  {
+            height: 45px;
+        }
+        button {
+            text-transform: uppercase;
+            @include font_roboto;
+            font-weight: bold;
+            padding: 12px 32px;
+            text-align: center;
+            display: inherit;
+            margin: auto;
+            font-size: 16px;
+        }
+    }
+    h3 {
+        @include font_ubuntu;
+        font-weight: bold;
+        color: $color_amarillo;
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    h4 {
+        @include font_roboto;
+        font-weight: 300;
+        color: $color_blanco;
+        font-size: 28px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    p {
+        @include font_roboto;
+        font-weight: 300;
+        font-style: italic;
+        color: $color_texto_gris2;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 32px;
+    }
+}
+
+.pageobras {
+    color: $color_texto_gris;
+    background: url(../img/fondo-amarillo.jpg) repeat-y center;
+    background-size: contain;
+    padding-bottom: 50px;
+
+    
+    &.ingenieria {
+        h3 {
+            color: $color_texto_gris;
+            font-weight: 300;
+        }
+        background: white;
+        .wrap-tab {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        .tabs {
+            margin-bottom: 5%;
+            .tab {
+                display: block;
+                float: left;
+                width: 50%;
+                &:last-child {
+                    float: right;
+                }
+            }
+            a {
+                text-decoration: none;
+                display: block;
+                padding: 20px;
+                text-align: center;
+                color: $color_texto_gris;
+                @include font_ubuntu;
+                background: $color_blanco_humo;
+                &.active {
+                    color: $color_blanco;
+                    background: $color_naranja;
+                }
+            }
+        }
+        .content {
+            .info {
+                display: none;
+                &.active {
+                    display: block;
+                }
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    columns: 2;
+                    -webkit-columns: 1;
+                    -moz-columns: 1;
+                    li {
+                        padding:15px 10px;
+                        p {
+                            font-size: 15px;
+                            @include font_ubuntu;
+                            font-weight: 300;
+                            color: $color_texto_gris;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    h3 {
+        @include font_ubuntu;
+        font-size: 42px;
+        font-weight: 300;
+        line-height: 42px;
+        text-align: center;
+        color: $color_blanco;
+        margin-top: 30px;
+        margin-bottom: 36px;
+        span {
+            text-transform: uppercase;
+            color: $color_acero;
+            font-weight: 700;
+        }
+    }
+
+    .footer {
+        background: $color_acero;
+        color: $color_blanco;
+        padding: 40px;
+        margin-bottom: 16px;
+        p {
+            @include font_ubuntu();
+            font-size: 18px;
+            line-height: 16px;
+            font-style: italic;
+            text-align: center;
+        }
+    }
+
+    
+    .servicio {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+        transition: all .3s ease-in;
+        .info {
+            position: absolute;
+            opacity: 0;
+            top: -100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 10px 14px;
+            transition: all .2s ease-in;
+            p {
+                font-size: 12px;
+                font-style: italic;
+                &.cliente {
+                    font-weight: bold;
+                }
+            }
+        }
+        &:hover {
+            box-shadow: 0px 0px 20px #000;
+            .info {
+                top: 0;
+                opacity: 1;
+                box-shadow: inset 0 0 0 8px $color_amarillo;
+            }
+        }
+    }
+}
+
+.pageservicios {
+    .tabs {
+        .wrap {
+            padding: 20px;
+        }
+        .tab {
+            width: 100%;
+            background: $color_amarillo3;
+            &:nth-child(2) {
+                background: $color_amarillo2;
+            }
+            &.active {
+                background: $color_gris3;
+                h3 {
+                    color: $color_amarillo;
+                }
+            }
+            h3 {
+                margin-top: 0;
+                color: $color_texto_gris;
+                text-align: center;
+            }
+        }
+    }
+    
+    .info {
+        display: none;
+        color: $color_texto_gris3;
+        &.active {
+            display: block;
+        }
+        h3 {
+            text-align: center;
+            font-size: 32px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 7%;
+            &:before {
+                border-top: 5px solid $color_amarillo;
+                content:"";
+                margin: 0 auto;
+                position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+                top: 50%; left: 0; right: 0; bottom: 0;
+                width: 95%;
+                z-index: -1;
+            }
+
+            span {
+                /* to hide the lines from behind the text, you have to set the background color the same as the container */
+                background: #fff;
+                padding: 0 25px;
+                display: inline-block;
+            }
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            li {
+                background: url('../img/icon-li-serv.png') no-repeat 0px 7px;
+                padding-left: 54px;
+                @include font_lato;
+                text-align: justify;
+                font-size: 21px;
+                font-weight: 300;
+                margin-bottom: 5%;
+            }
+        }
+        .images {
+            text-align: right;
+            padding-right: 10%;
+            margin-bottom: 10%;
+            img:first-child{
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+footer {
+    color: $color_gris1;
+    background: url(../img/ingenieros1.png) no-repeat bottom left, url(../img/epi.png) no-repeat bottom right;
+    background-color: $color_blanco;
+    background-size: 28%;
+    .info {
+        background: $color_amarillo;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        .item {
+            margin-bottom: 20px;
+            img {
+                float: left;
+            }
+            p {
+                font-size: 14px;
+                text-align: left;
+                margin-left: 60px;
+                strong {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .copy {
+        padding-top: 28px;
+        padding-bottom: 24px;
+        ul.social {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 10px;
+            text-align: center;
+            list-style: none;
+            li {
+                display: inline-block;
+                margin: 10px;
+            }
+        }
+        p {
+            text-align: center;
+            margin-left: 10%;
+            margin-right: 10%;
+            text-shadow: 1px 1px 1px #fff, 1px 1px 1px #fff, 1px 1px 1px #fff;
+        }
+    }
+}
+
+@-keyframes patterAnim {
+    from { background-position: 0 0;}
+    to { background-position: 53px 0;}
+}
+@-webkit-keyframes patterAnim {
+    from { background-position: 0 0;}
+    to { background-position: 53px 0;}
+}
+
+.delay0_5 {
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+}
+.delay1_0 {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.delay1_5 {
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen_sm_min) {
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen_md_min) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen_lg_min) {
+    .navbar-collapse {
+        float: none;
+    }
+    .nav>li {
+        width: auto;
+    }
+    .nav>li>a {
+        text-align: left;
+    }
+    .main {
+        .logo {
+            position: absolute;
+            z-index: 1000;
+            left: 11%;
+            top: -10px;
+            width: auto;
+        }
+    }
+
+    .carousel {
+        .item {
+            .desc {
+                position: absolute;
+                left: 26.25%;
+                bottom: 0;
+
+                 &:after {
+                    position: absolute;
+                    bottom: 0;
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-left: 300px solid transparent;
+                    border-right: 300px solid transparent;
+                    border-bottom: 250px solid $color_amarillo;
+                }
+                .rect {
+                    position: relative;
+                    z-index: 10;
+                    margin-bottom: 64px;
+                    @include font_roboto();
+                    line-height: 34px;
+                    width: 640px;
+                    text-align: center;
+                    padding: 20px;
+                    background: #000;
+                    font-weight: bold;
+                    font-size: 36px;
+                    border-left: 20px solid $color_amarillo;
+                    border-right: 20px solid $color_amarillo;
+                    em {
+                        color: $color_amarillo;
+                    }
+                    .upper {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+    .tabcontainer {
+        .tabs {
+            float: left;
+            width: 30%;
+        }
+        .content {
+            float: left;
+            width: 38%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+        .image {
+            float: left;
+            width: 30%;
+        }
+    }
+    .servicios {
+        .margin {
+            margin: 20% 20% 15% 20%;
+        }
+        .block {
+            padding-top: auto;
+            padding-bottom: auto;
+            display: table-cell;
+            width: 33.3%;
+        }
+    }
+    .pageservicios {
+        .tabs {
+            .tab {
+                width: 33.33%;
+                float: left;
+                h3 {
+                    margin-top: 20px;
+                }
+            }
+        }
+        .info {
+            .images {
+                border-right: 1px solid $color_gris4;
+            }
+        }
+    }
+    .pageobras {
+        h3 {
+            font-size: 52px;
+            line-height: 48px;
+            margin-top: 60px;
+            margin-bottom: 72px;
+        }
+        &.ingenieria {
+            .content {
+                .info {
+                    ul {
+                        -webkit-columns: 2;
+                        -moz-columns: 2;
+                        li {
+                            padding:15px 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .servicio {
+            .info {
+                padding: 40px 50px;
+                p {
+                    font-size: 14px;
+                }
+            }        
+            &:hover {
+                .info {
+                    box-shadow: inset 0 0 0 20px $color_amarillo;
+                }
+            }
+        }
+    }
+    .clientes {
+        .cliente {
+            width: 100%;
+        }
+    }
+    .obras {
+        .content {
+            width: 300px;
+            a {
+                margin-top: 20px;
+                margin-bottom: auto;
+            }
+        }
+        .construccion {
+            float: left;
+            margin-left: 5%;
+            .content {
+                h3 {
+                    text-align: left;
+                }
+            }
+        }
+        .ingenieria {
+            float: right;
+            margin-right: 5%;
+            .content {
+                h3 {
+                    text-align: right;
+                }
+            }
+        }
+        .ingenieros {
+            display: block;
+        }
+    }
+    footer {
+        background-size: 10%;
+        .info {
+            .item {
+                margin-bottom: auto;
+            }
+        }
+    }
+}
